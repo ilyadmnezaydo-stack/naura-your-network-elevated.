@@ -17,7 +17,7 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
               Управляйте вашими{' '}
-              <span className="text-brand">связями</span> с Naura
+              <span className="animate-gradient-text">связями</span> с Naura
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
               Персональная CRM, которая наводит порядок в контактах и помогает
@@ -26,12 +26,13 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             </p>
             <Button
               onClick={onOpenModal}
-              className="btn-primary text-base md:text-lg px-8 py-4"
+              className="btn-primary text-base md:text-lg px-8 py-4 group relative overflow-hidden"
             >
-              Начать пользоваться
+              <span className="relative z-10">Начать пользоваться</span>
+              <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12"></span>
             </Button>
-            <div className="flex items-center gap-2 mt-6 text-sm text-muted-foreground">
-              <Users size={18} className="text-brand-purple" />
+            <div className="flex items-center gap-2 mt-6 text-sm text-muted-foreground group cursor-default">
+              <Users size={18} className="text-brand-purple group-hover:scale-110 transition-transform duration-300" />
               <span>Разобрали 50,000+ контактов за первый месяц беты</span>
             </div>
           </div>
@@ -40,9 +41,9 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           <div
             className={`relative ${isVisible ? 'animate-fade-in-up animate-stagger-2' : 'opacity-0'}`}
           >
-            <div className="relative mx-auto w-72 md:w-80 lg:w-96">
+            <div className="relative mx-auto w-72 md:w-80 lg:w-96 animate-float">
               {/* Phone Frame */}
-              <div className="bg-section-dark rounded-[3rem] p-3 shadow-2xl">
+              <div className="bg-section-dark rounded-[3rem] p-3 shadow-2xl hover:shadow-primary/20 transition-shadow duration-500">
                 <div className="bg-section-dark rounded-[2.5rem] overflow-hidden">
                   {/* Status Bar */}
                   <div className="bg-section-dark-surface px-6 py-3 flex justify-between items-center">
@@ -56,14 +57,14 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
                   {/* App Content */}
                   <div className="bg-section-dark p-4 min-h-[480px]">
                     {/* Search */}
-                    <div className="bg-section-dark-surface rounded-xl p-3 mb-4">
+                    <div className="bg-section-dark-surface rounded-xl p-3 mb-4 animate-shimmer">
                       <span className="text-muted-foreground text-sm">
                         Поиск контактов...
                       </span>
                     </div>
 
                     {/* Contact Card */}
-                    <div className="bg-section-dark-surface rounded-2xl p-4 mb-3">
+                    <div className="bg-section-dark-surface rounded-2xl p-4 mb-3 hover-lift cursor-pointer animate-pulse-glow">
                       <div className="flex items-start gap-3">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-purple to-brand-purple-light flex items-center justify-center text-white font-bold">
                           АС
@@ -87,7 +88,7 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
                     </div>
 
                     {/* Another Contact */}
-                    <div className="bg-section-dark-surface rounded-2xl p-4 opacity-70">
+                    <div className="bg-section-dark-surface rounded-2xl p-4 opacity-70 hover:opacity-100 transition-opacity duration-300">
                       <div className="flex items-start gap-3">
                         <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center text-foreground font-bold">
                           МП
@@ -105,8 +106,10 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
               </div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-brand-purple/20 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-brand-purple-light/20 rounded-full blur-3xl"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-brand-purple/20 rounded-full blur-2xl animate-pulse-glow"></div>
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-brand-purple-light/20 rounded-full blur-3xl animate-float-delayed"></div>
+              <div className="absolute top-1/2 -right-12 w-4 h-4 bg-brand-purple rounded-full animate-bounce-in" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute top-1/4 -left-8 w-3 h-3 bg-brand-purple-light rounded-full animate-bounce-in" style={{ animationDelay: '1.2s' }}></div>
             </div>
           </div>
         </div>

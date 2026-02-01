@@ -51,9 +51,11 @@ export const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`feature-card ${isVisible ? `animate-fade-in-up animate-stagger-${index + 1}` : 'opacity-0'}`}
+              className={`feature-card feature-card-enhanced hover-lift hover-icon-spin ${isVisible ? `animate-fade-in-up animate-stagger-${index + 1}` : 'opacity-0'}`}
             >
-              <div className="icon-container mb-4">{feature.icon}</div>
+              <div className="icon-container mb-4 transition-transform duration-300">
+                <span className="icon-spin inline-block">{feature.icon}</span>
+              </div>
               <h3 className="text-lg font-bold text-foreground mb-2">
                 {feature.title}
               </h3>
