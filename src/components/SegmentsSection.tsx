@@ -14,18 +14,18 @@ const FlipCard = ({ icon, title, problem, solution, solutionDetail }: FlipCardPr
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div className={`flip-card ${isFlipped ? 'flipped' : ''}`}>
+    <div className={`flip-card ${isFlipped ? 'flipped' : ''} group`}>
       <div className="flip-card-inner">
         {/* Front - Problem */}
-        <div className="flip-card-front">
-          <div className="icon-container-dark mb-4">{icon}</div>
+        <div className="flip-card-front hover:shadow-lg hover:shadow-primary/10 transition-shadow duration-300">
+          <div className="icon-container-dark mb-4 group-hover:scale-110 transition-transform duration-300">{icon}</div>
           <h3 className="text-lg font-bold text-white mb-3">{title}</h3>
           <p className="text-muted-foreground text-sm flex-1">{problem}</p>
           <button
             onClick={() => setIsFlipped(true)}
-            className="flex items-center gap-2 text-brand-purple-light text-sm mt-4 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 text-brand-purple-light text-sm mt-4 hover:gap-3 transition-all duration-300 group/btn"
           >
-            <RotateCcw size={16} />
+            <RotateCcw size={16} className="group-hover/btn:rotate-180 transition-transform duration-500" />
             Перевернуть
           </button>
         </div>
@@ -37,9 +37,9 @@ const FlipCard = ({ icon, title, problem, solution, solutionDetail }: FlipCardPr
           <p className="text-white/80 text-sm flex-1">{solutionDetail}</p>
           <button
             onClick={() => setIsFlipped(false)}
-            className="flex items-center gap-2 text-white text-sm mt-4 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 text-white text-sm mt-4 hover:gap-3 transition-all duration-300 group/btn"
           >
-            <RotateCcw size={16} />
+            <RotateCcw size={16} className="group-hover/btn:-rotate-180 transition-transform duration-500" />
             Назад
           </button>
         </div>
